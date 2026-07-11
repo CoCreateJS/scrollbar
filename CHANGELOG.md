@@ -1,3 +1,11 @@
+## [1.10.4](https://github.com/CoCreate-app/CoCreate-overlay-scroll/compare/v1.10.3...v1.10.4) (2026-07-11)
+
+
+### Bug Fixes
+
+* removed post install and add add packages to apprved list ([fbf4721](https://github.com/CoCreate-app/CoCreate-overlay-scroll/commit/fbf472195b30db423f32fa9d87feaffacea2b876))
+* semantic version handling ([054d5ff](https://github.com/CoCreate-app/CoCreate-overlay-scroll/commit/054d5ff188409c5b399582a15bb3741a7817872d))
+
 ## [1.10.3](https://github.com/CoCreate-app/CoCreate-overlay-scroll/compare/v1.10.2...v1.10.3) (2026-02-04)
 
 

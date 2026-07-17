@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/CoCreate-app/CoCreate-overlay-scroll/compare/v1.10.4...v1.11.0) (2026-07-17)
+
+
+### Features
+
+* update automated workflow and release configuration for improved semantic release handling ([d280f50](https://github.com/CoCreate-app/CoCreate-overlay-scroll/commit/d280f500c160f79150dcf29355b17d8245c87e48))
+
 ## [1.10.4](https://github.com/CoCreate-app/CoCreate-overlay-scroll/compare/v1.10.3...v1.10.4) (2026-07-11)
 
 

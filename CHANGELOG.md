@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/CoCreate-app/CoCreate-overlay-scroll/compare/v1.11.1...v1.11.2) (2026-07-19)
+
+
+### Bug Fixes
+
+* set default branch to main ([1331e29](https://github.com/CoCreate-app/CoCreate-overlay-scroll/commit/1331e29571a42b13c1c8187a6ee3662cec88d4ca))
+
 ## [1.11.1](https://github.com/CoCreate-app/CoCreate-overlay-scroll/compare/v1.11.0...v1.11.1) (2026-07-17)
 
 

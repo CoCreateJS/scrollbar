@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CoCreate-app/CoCreate-overlay-scroll.git"
+    "url": "git+https://gitlab.com/cocreatejs/CoCreate-overlay-scroll.git"
   },
   "author": "CoCreate LLC",
   "license": "MIT",

@@ -1,120 +1,172 @@
-.co_scrollbar-disable-selection {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+/*
+ * CoCreateScrollbar - Modern Overlay Scrollbar Stylesheet
+ * Version 2.1.0
+ */
+
+/* Non-scrolling host for the native viewport and overlay tracks */
+[scrollbar] {
+    position: relative !important;
+    overflow: hidden !important;
+    box-sizing: border-box;
 }
 
-.co_prevented {
-  -webkit-overflow-scrolling: touch;
-}
-.co_prevented > .co_scrollbar {
-  display: none;
-}
-
-.co_overlay-scroll {
-  position: relative;
-  overflow: hidden!important;
-  width: 100%;
-  height: 100%;
+/* Scrollable viewport - hides native scrollbars across browsers */
+[scrollbar] > .scrollbar-viewport {
+    width: 100%;
+    height: 100%;
+    overflow: auto !important;
+    box-sizing: border-box;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE 10+ and Edge */
+    -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling */
 }
 
-.co_scrollbar {
-  position: absolute;
-  right: 2px;
-  bottom: 2px;
-  z-index: 1;
-  border-radius: 3px;
+[scrollbar] > .scrollbar-viewport::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
-.co_scrollbar._vertical {
-  width: 6px;
-  top: 2px;
-}
-.co_scrollbar._vertical.left {
-  left: 2px;
-}
-
-.co_scrollbar._horizontal {
-  height: 6px;
-  left: 2px;
-}
-.co_scrollbar._horizontal.top {
-  top: 2px
-}
-
-.co_scrollbar .thumb {
-  position: relative;
-  display: block;
-  width: 0;
-  height: 0;
-  cursor: pointer;
-  border-radius: inherit;
-  background-color: rgba(150,150,150,.5);
-  transform: translate3d(0,0,0);
+/* Overlay track base */
+[scrollbar] > .scrollbar-track {
+    position: absolute;
+    z-index: 30;
+    pointer-events: none;
+    border-radius: 9999px;
+    opacity: 0;
+    background-color: var(--cc-track-bg, rgba(0, 0, 0, 0.05));
+    transition:
+        opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.2s ease,
+        width 0.15s ease,
+        height 0.15s ease;
 }
 
-.co_scrollbar .thumb:hover,
-.co_scrollbar .thumb:active {
-  background-color: rgba(150,150,150,.6);
+/* Interactive thumb base */
+[scrollbar] > .scrollbar-track > .scrollbar-thumb {
+    pointer-events: auto;
+    border-radius: 9999px;
+    cursor: pointer;
+    will-change: transform;
+    background-color: var(--cc-thumb-bg, rgba(129, 140, 248, 0.75));
+    transition: background-color 0.15s ease, opacity 0.2s ease;
 }
 
-.co_scrollbar._vertical .thumb {
-  width: 100%;
+/* Vertical track positioning and sizing */
+[scrollbar] > .scrollbar-track-y {
+    top: 4px;
+    right: 4px;
+    bottom: 4px;
+    width: 6px;
 }
 
-.co_scrollbar._horizontal .thumb {
-  height: 100%;
+[scrollbar] > .scrollbar-track-y.pos-left {
+    right: auto;
+    left: 4px;
 }
 
-.co_overlay-scroll .co_overlay-viewport {
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-  transform: translate3d(0,0,0);
-  -webkit-overflow-scrolling: touch;
+[scrollbar] > .scrollbar-track-y > .scrollbar-thumb {
+    width: 100%;
+    height: 24px;
 }
 
-.co_overlay-scroll.dark-mode .co_scrollbar .thumb {
-  background-color: rgba(0,0,0,.5);
-}
-.co_overlay-scroll.dark-mode .co_scrollbar .thumb:hover,
-.co_overlay-scroll.dark-mode .co_scrollbar .thumb:active {
-  background-color: rgba(0,0,0,.7);
-}
-.co_overlay-scroll.scroll-hide .co_scrollbar,
-.co_overlay-scroll.vertical_disabled .co_scrollbar._vertical,
-.co_overlay-scroll.horizontal_disabled .co_scrollbar._horizontal{
-  display: none;
-}
-.co_overlay-scroll.vertical_disabled .co_overlay-viewport {
-  overflow-y: hidden;
-}
-.co_overlay-scroll.horizontal_disabled .co_overlay-viewport {
-  overflow-x: hidden;
-}
-.co_overlay-scroll.scroll-auto .co_scrollbar {
-  opacity: 0;
-  transition: opacity 120ms ease-out;
-}
-.co_overlay-scroll.scroll-auto:hover > .co_scrollbar,
-.co_overlay-scroll.scroll-auto:active > .co_scrollbar,
-.co_overlay-scroll.scroll-auto:focus > .co_scrollbar {
-  opacity: 1;
-  transition: opacity 340ms ease-out;
+/* Horizontal track positioning and sizing */
+[scrollbar] > .scrollbar-track-x {
+    right: 4px;
+    bottom: 4px;
+    left: 4px;
+    height: 6px;
 }
 
-.co_resize-trigger {
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0;
+[scrollbar] > .scrollbar-track-x.pos-top {
+    top: 4px;
+    bottom: auto;
+}
+
+[scrollbar] > .scrollbar-track-x > .scrollbar-thumb {
+    width: 24px;
+    height: 100%;
+}
+
+/* Interactive hover and drag expansion states */
+[scrollbar] > .scrollbar-track > .scrollbar-thumb:hover,
+[scrollbar] > .scrollbar-track > .scrollbar-thumb.is-dragging {
+    background-color: var(--cc-thumb-hover-bg, rgba(165, 180, 252, 1));
+}
+
+[scrollbar] > .scrollbar-track-y:hover,
+[scrollbar] > .scrollbar-track-y.is-dragging {
+    width: 8px;
+}
+
+[scrollbar] > .scrollbar-track-x:hover,
+[scrollbar] > .scrollbar-track-x.is-dragging {
+    height: 8px;
+}
+
+/* Auto mode: show while scrolling, hovering, or dragging */
+[scrollbar].scrolling > .scrollbar-track,
+[scrollbar]:hover > .scrollbar-track,
+[scrollbar].is-dragging > .scrollbar-track {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Always-visible mode */
+[scrollbar][scrollbar-visible="show"] > .scrollbar-track,
+[scrollbar].visible-show > .scrollbar-track {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Axis disabling */
+[scrollbar].disable-y > .scrollbar-track-y,
+[scrollbar].disable-x > .scrollbar-track-x {
+    display: none !important;
+}
+
+[scrollbar].disable-y > .scrollbar-viewport {
+    overflow-y: hidden !important;
+}
+
+[scrollbar].disable-x > .scrollbar-viewport {
+    overflow-x: hidden !important;
+}
+
+/* Prevent text selection while dragging */
+body.scrollbar-dragging {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+/* Built-in preset color themes */
+.theme-indigo {
+    --cc-thumb-bg: rgba(129, 140, 248, 0.75);
+    --cc-thumb-hover-bg: rgba(165, 180, 252, 1);
+}
+
+.theme-emerald {
+    --cc-thumb-bg: rgba(52, 211, 153, 0.75);
+    --cc-thumb-hover-bg: rgba(110, 231, 183, 1);
+}
+
+.theme-rose {
+    --cc-thumb-bg: rgba(251, 113, 133, 0.75);
+    --cc-thumb-hover-bg: rgba(253, 164, 175, 1);
+}
+
+.theme-amber {
+    --cc-thumb-bg: rgba(251, 191, 36, 0.75);
+    --cc-thumb-hover-bg: rgba(252, 211, 77, 1);
+}
+
+.theme-glass {
+    --cc-thumb-bg: rgba(255, 255, 255, 0.3);
+    --cc-thumb-hover-bg: rgba(255, 255, 255, 0.6);
+}
+
+.theme-dark {
+    --cc-thumb-bg: rgba(255, 255, 255, 0.25);
+    --cc-thumb-hover-bg: rgba(255, 255, 255, 0.5);
+    --cc-track-bg: rgba(255, 255, 255, 0.05);
 }

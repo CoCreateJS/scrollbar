@@ -1,129 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Overlay Scroll | CoCreateJS</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scrollbar | CoCreateJS</title>
 
-        <!-- CoCreate Favicon -->
         <link
             rel="icon"
             type="image/png"
             sizes="32x32"
             href="../assets/favicon.ico" />
-        <!-- CoCreate CSS CDN -->
         <link
             rel="stylesheet"
-            href="https://cdn.cocreate.app/overlay-scroll/latest/CoCreate-overlay-scroll.min.css"
+            href="../dist/CoCreate-overlay-scroll.css"
             type="text/css" />
-        <link rel="manifest" href="/manifest.webmanifest" />
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                padding: 32px;
+                color: #1f2937;
+                background: #f3f4f6;
+                font-family: Arial, sans-serif;
+            }
+
+            h1 {
+                margin: 0 0 8px;
+            }
+
+            .description {
+                margin: 0 0 32px;
+                color: #6b7280;
+            }
+
+            .examples {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 24px;
+            }
+
+            .example {
+                padding: 16px;
+                border: 1px solid #e5e7eb;
+                border-radius: 12px;
+                background: #ffffff;
+            }
+
+            .example h2 {
+                margin: 0 0 12px;
+                font-size: 16px;
+            }
+
+            .scrollbar-demo {
+                width: 100%;
+                height: 240px;
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+                background: #ffffff;
+            }
+
+            .scrollbar-demo.theme-dark {
+                border-color: #374151;
+                color: #f9fafb;
+                background: #111827;
+            }
+
+            .content {
+                display: grid;
+                place-items: center;
+                min-width: 100%;
+                min-height: 100%;
+                padding: 24px;
+                color: #374151;
+                background:
+                    linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(16, 185, 129, 0.18)),
+                    repeating-linear-gradient(
+                        0deg,
+                        transparent,
+                        transparent 39px,
+                        rgba(107, 114, 128, 0.18) 40px
+                    ),
+                    repeating-linear-gradient(
+                        90deg,
+                        transparent,
+                        transparent 39px,
+                        rgba(107, 114, 128, 0.18) 40px
+                    );
+            }
+
+            .theme-dark .content {
+                color: #f9fafb;
+            }
+
+            .content-both {
+                width: 640px;
+                height: 520px;
+            }
+
+            .content-x {
+                width: 720px;
+                height: 100%;
+            }
+
+            .content-y {
+                width: 100%;
+                height: 640px;
+            }
+        </style>
     </head>
-    <body class="co_overlay-scroll" style="height: 2000px">
-        <div id="type_example" style="display: flex; flex-wrap: wrap">
-            <!-- Example:  default scrolling -->
-            <div style="margin: 10px">
-                <h3>Default</h3>
-                <div
-                    class="co_overlay-scroll"
-                    style="width: 300px; height: 300px">
-                    <img
-                        src="https://mdbootstrap.com/img/Photos/Others/img%20(44).jpg" />
-                </div>
-            </div>
-            <!-- Example:  X-direction scrolling -->
-            <div style="margin: 10px">
-                <h3>X-direction ScrollBar</h3>
-                <div
-                    class="co_overlay-scroll"
-                    data-overlay-scroll_type="scrollX"
-                    style="width: 300px; height: 300px">
-                    <img
-                        src="https://mdbootstrap.com/img/Photos/Others/img%20(44).jpg" />
-                </div>
-            </div>
-            <!-- Example:  Y-direction scrolling -->
-            <div style="margin: 10px">
-                <h3>Y-direction ScrollBar</h3>
-                <div
-                    class="co_overlay-scroll"
-                    data-overlay-scroll_type="scrollY"
-                    style="width: 300px; height: 300px">
-                    <img
-                        src="https://mdbootstrap.com/img/Photos/Others/img%20(44).jpg" />
-                </div>
-            </div>
-        </div>
 
-        <div id="position_example" style="display: flex; flex-wrap: wrap">
-            <!-- Example:  default scrolling -->
-            <div style="margin: 10px">
-                <h3>Bottom, Left</h3>
-                <div
-                    class="co_overlay-scroll"
-                    data-overlay-scroll_pos="left"
-                    style="width: 300px; height: 300px">
-                    <img
-                        src="https://mdbootstrap.com/img/Photos/Others/img%20(44).jpg" />
-                </div>
-            </div>
-            <!-- Example:  X-direction scrolling -->
-            <div style="margin: 10px">
-                <h3>Top, Right</h3>
-                <div
-                    class="co_overlay-scroll"
-                    data-overlay-scroll_pos="top"
-                    style="width: 300px; height: 300px">
-                    <img
-                        src="https://mdbootstrap.com/img/Photos/Others/img%20(44).jpg" />
-                </div>
-            </div>
-            <!-- Example:  Y-direction scrolling -->
-            <div style="margin: 10px">
-                <h3>Top, Left</h3>
-                <div
-                    class="co_overlay-scroll"
-                    data-overlay-scroll_pos="top;left"
-                    style="width: 300px; height: 300px">
-                    <img
-                        src="https://mdbootstrap.com/img/Photos/Others/img%20(44).jpg" />
-                </div>
-            </div>
-        </div>
+    <body>
+        <h1>CoCreate Scrollbar</h1>
+        <p class="description">
+            The first child remains the native scrolling viewport. Only the
+            overlay tracks and thumbs are generated.
+        </p>
 
-        <div id="visible_example" style="display: flex; flex-wrap: wrap">
-            <!-- Example:  default scroller -->
-            <div style="margin: 10px">
-                <h3>Dark Mode</h3>
-                <div
-                    class="co_overlay-scroll dark-mode"
-                    style="width: 300px; height: 300px">
-                    <img
-                        src="https://mdbootstrap.com/img/Photos/Others/img%20(44).jpg" />
+        <main class="examples">
+            <section class="example">
+                <h2>Horizontal and vertical</h2>
+                <div class="scrollbar-demo" scrollbar>
+                    <div>
+                        <div class="content content-both">Scroll in either direction</div>
+                    </div>
                 </div>
-            </div>
-            <!-- Example:  Top and Left scroller -->
-            <div style="margin: 10px">
-                <h3>Hidden ScrollBar</h3>
-                <div
-                    class="co_overlay-scroll"
-                    data-overlay-scroll_visible="hide"
-                    style="width: 300px; height: 300px">
-                    <img
-                        src="https://mdbootstrap.com/img/Photos/Others/img%20(44).jpg" />
-                </div>
-            </div>
-            <!-- Example:  Top ScrollBar -->
-            <div style="margin: 10px">
-                <h3>Auto Hidden ScrollBar</h3>
-                <div
-                    class="co_overlay-scroll"
-                    data-overlay-scroll_visible="auto"
-                    style="width: 300px; height: 300px">
-                    <img
-                        src="https://mdbootstrap.com/img/Photos/Others/img%20(44).jpg" />
-                </div>
-            </div>
-        </div>
+            </section>
 
-        <!--<script src="../dist/CoCreate-overlay-scroll.js"></script>-->
-        <script src="https://CoCreate.app/dist/CoCreate.js"></script>
+            <section class="example">
+                <h2>Horizontal only</h2>
+                <div
+                    class="scrollbar-demo"
+                    scrollbar
+                    scrollbar-type="scrollx">
+                    <div>
+                        <div class="content content-x">Horizontal scrolling</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="example">
+                <h2>Vertical only</h2>
+                <div
+                    class="scrollbar-demo"
+                    scrollbar
+                    scrollbar-type="scrolly">
+                    <div>
+                        <div class="content content-y">Vertical scrolling</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="example">
+                <h2>Top and left</h2>
+                <div
+                    class="scrollbar-demo"
+                    scrollbar
+                    scrollbar-pos="top left">
+                    <div>
+                        <div class="content content-both">Tracks positioned top and left</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="example">
+                <h2>Always visible</h2>
+                <div
+                    class="scrollbar-demo theme-emerald"
+                    scrollbar
+                    scrollbar-visible="show">
+                    <div>
+                        <div class="content content-both">Tracks remain visible</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="example">
+                <h2>Dark theme</h2>
+                <div
+                    class="scrollbar-demo theme-dark"
+                    scrollbar
+                    scrollbar-visible="show">
+                    <div>
+                        <div class="content content-both">Dark scrollbar theme</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script src="../dist/CoCreate-overlay-scroll.js"></script>
     </body>
 </html>

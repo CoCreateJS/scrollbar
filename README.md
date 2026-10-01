@@ -1,85 +1,148 @@
-# CoCreate-overlay-scroll
+# CoCreate Scrollbar
 
-A simple overlay-scroll component in vanilla javascript. Easily configured using HTML5 attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/overlay-scroll)
+A declarative custom scrollbar for native scroll containers with configurable
+axes, track positions, visibility, and automatic DOM lifecycle handling.
 
-![minified](https://img.badgesize.io/https://cdn.cocreate.app/overlay-scroll/latest/CoCreate-overlay-scroll.min.js?style=flat-square&label=minified&color=orange)
-![gzip](https://img.badgesize.io/https://cdn.cocreate.app/overlay-scroll/latest/CoCreate-overlay-scroll.min.js?compression=gzip&style=flat-square&label=gzip&color=yellow)
-![brotli](https://img.badgesize.io/https://cdn.cocreate.app/overlay-scroll/latest/CoCreate-overlay-scroll.min.js?compression=brotli&style=flat-square&label=brotli)
-![GitHub latest release](https://img.shields.io/github/v/release/CoCreate-app/CoCreate-overlay-scroll?style=flat-square)
-![License](https://img.shields.io/github/license/CoCreate-app/CoCreate-overlay-scroll?style=flat-square)
-![Hiring](https://img.shields.io/static/v1?style=flat-square&label=&message=Hiring&color=blueviolet)
+The component preserves browser-native scrolling, including wheel, keyboard,
+touch, and programmatic scrolling. It hides the native scrollbar and adds
+custom overlay tracks and draggable thumbs.
 
-![CoCreate-overlay-scroll](https://cdn.cocreate.app/docs/CoCreate-overlay-scroll.gif)
-
-## [Docs & Demo](https://cocreate.app/docs/overlay-scroll)
-
-For a complete guide and working demo refer to the [doumentation](https://cocreate.app/docs/overlay-scroll)
-
-## CDN
-
-```html
-<script src="https://cdn.cocreate.app/overlay-scroll/latest/CoCreate-overlay-scroll.min.js"></script>
-```
-
-```html
-<script src="https://cdn.cocreate.app/overlay-scroll/latest/CoCreate-overlay-scroll.min.css"></script>
-```
-
-## NPM
+## Installation
 
 ```shell
-$ npm i @cocreate/overlay-scroll
+npm install @cocreate/scrollbar
 ```
-
-## yarn
 
 ```shell
-$ yarn install @cocreate/overlay-scroll
+yarn add @cocreate/scrollbar
 ```
 
-# Table of Contents
+Importing the package loads its styles and initializes every element with a
+`scrollbar` attribute.
 
-- [Table of Contents](#table-of-contents)
-- [Announcements](#announcements)
-- [Roadmap](#roadmap)
-- [How to Contribute](#how-to-contribute)
-- [About](#about)
-- [License](#license)
+```js
+import CoCreateScrollbar from "@cocreate/scrollbar";
+```
 
-<a name="announcements"></a>
+## Usage
 
-# Announcements
+Give the scrollbar host a constrained width and height. Its first element child
+becomes the native scrolling viewport.
 
-All updates to this library are documented in our [CHANGELOG](https://github.com/CoCreate-app/CoCreate-overlay-scroll/blob/master/CHANGELOG.md) and [releases](https://github.com/CoCreate-app/CoCreate-overlay-scroll/releases). You may also subscribe to email for releases and breaking changes.
+```html
+<div scrollbar style="height: 300px">
+  <div>
+    <!-- Scrollable content -->
+  </div>
+</div>
+```
 
-<a name="roadmap"></a>
+The host owns the generated tracks. Keep asynchronously loaded content inside
+the viewport rather than placing `src` on the scrollbar host:
 
-# Roadmap
+```html
+<div scrollbar style="height: 300px">
+  <div>
+    <div src="/components/content.html"></div>
+  </div>
+</div>
+```
 
-If you are interested in the future direction of this project, please take a look at our open [issues](https://github.com/CoCreate-app/CoCreate-overlay-scroll/issues) and [pull requests](https://github.com/CoCreate-app/CoCreate-overlay-scroll/pulls). We would love to hear your feedback.
+This prevents fetched content from replacing the viewport and generated track
+structure.
 
-<a name="about"></a>
+## Attributes
 
-# About
+| Attribute | Values | Default | Purpose |
+| --- | --- | --- | --- |
+| `scrollbar` | Boolean attribute | — | Initializes the component. |
+| `scrollbar-type` | `scrollx`, `scrolly`, or both | `scrollx scrolly` | Enables the requested axes. |
+| `scrollbar-pos` | `left` or `right`, plus `top` or `bottom` | `right bottom` | Positions the vertical and horizontal tracks. |
+| `scrollbar-visible` | `auto` or `show` | `auto` | Shows tracks contextually or keeps them visible. |
 
-CoCreate-overlay-scroll is guided and supported by the CoCreate Developer Experience Team.
+### Vertical scrolling only
 
-Please Email the Developer Experience Team [here](mailto:develop@cocreate.app) in case of any queries.
+```html
+<div scrollbar scrollbar-type="scrolly" style="height: 300px">
+  <div>...</div>
+</div>
+```
 
-CoCreate-overlay-scroll is maintained and funded by CoCreate. The names and logos for CoCreate are trademarks of CoCreate, LLC.
+### Tracks on the top and left
 
-<a name="contribute"></a>
+```html
+<div scrollbar scrollbar-pos="top left" style="height: 300px">
+  <div>...</div>
+</div>
+```
 
-# How to Contribute
+### Always-visible tracks
 
-We encourage contribution to our libraries (you might even score some nifty swag), please see our [CONTRIBUTING](https://github.com/CoCreate-app/CoCreate-overlay-scroll/blob/master/CONTRIBUTING.md) guide for details.
+```html
+<div scrollbar scrollbar-visible="show" style="height: 300px">
+  <div>...</div>
+</div>
+```
 
-We want this library to be community-driven, and CoCreate led. We need your help to realize this goal. To help make sure we are building the right things in the right order, we ask that you create [issues](https://github.com/CoCreate-app/CoCreate-overlay-scroll/issues) and [pull requests](https://github.com/CoCreate-app/CoCreate-overlay-scroll/pulls) or merely upvote or comment on existing issues or pull requests.
+Attribute changes are applied dynamically. Adding or removing the `scrollbar`
+attribute initializes or destroys the instance, while changing an option
+attribute refreshes it.
 
-We appreciate your continued support, thank you!
+## JavaScript API
 
+```js
+const element = document.querySelector("[scrollbar]");
 
-<a name="license"></a>
-# License
+const instance = CoCreateScrollbar.init(element);
+CoCreateScrollbar.get(element);
+CoCreateScrollbar.destroy(element);
+CoCreateScrollbar.initAll();
+```
 
-[The MIT License (MIT)](https://github.com/CoCreate-app/CoCreate-overlay-scroll/blob/master/LICENSE)
+`init()` accepts an element, a selector, or an array-like collection. Elements
+inserted into or removed from the document are also initialized and destroyed
+automatically through `@cocreate/observer`.
+
+## Update event
+
+The host dispatches `cocreate-scroll-update` whenever its scrollbar geometry is
+recalculated.
+
+```js
+element.addEventListener("cocreate-scroll-update", (event) => {
+  console.log(event.detail.scrollTop, event.detail.maxScrollY);
+});
+```
+
+The event detail includes:
+
+- `scrollTop` and `scrollLeft`
+- `maxScrollY` and `maxScrollX`
+- `clientHeight` and `clientWidth`
+- `thumbVHeight` and `thumbHWidth`
+
+## Styling
+
+Customize the tracks with CSS variables on the scrollbar host:
+
+```css
+.my-scrollbar {
+  --cc-track-bg: rgb(0 0 0 / 8%);
+  --cc-thumb-bg: rgb(99 102 241 / 75%);
+  --cc-thumb-hover-bg: rgb(129 140 248);
+}
+```
+
+The stylesheet also includes `theme-indigo`, `theme-emerald`, `theme-rose`,
+`theme-amber`, `theme-glass`, and `theme-dark` preset classes.
+
+## Project links
+
+- [Documentation](https://cocreate.app/docs/scrollbar)
+- [Issues](https://github.com/CoCreate-app/CoCreate-scrollbar/issues)
+- [Releases](https://github.com/CoCreate-app/CoCreate-scrollbar/releases)
+- [Contributing](https://github.com/CoCreate-app/CoCreate-scrollbar/blob/master/CONTRIBUTING.md)
+
+## License
+
+[MIT](https://github.com/CoCreate-app/CoCreate-scrollbar/blob/master/LICENSE)

@@ -1,9 +1,9 @@
 {
-  "name": "@cocreate/overlay-scroll",
+  "name": "@cocreate/scrollbar",
   "version": "1.14.0",
-  "description": "A simple overlay-scroll component in vanilla javascript. Easily configured using HTML5 attributes and/or JavaScript API.",
+  "description": "A declarative custom scrollbar for native scroll containers with configurable axes, track positions, visibility, and automatic DOM lifecycle handling.",
   "keywords": [
-    "overlay-scroll",
+    "scrollbar",
     "low-code",
     "realtime",
     "realtime-framework",
@@ -22,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/cocreatejs/CoCreate-overlay-scroll.git"
+    "url": "git+https://gitlab.com/cocreatejs/CoCreate-scrollbar.git"
   },
   "author": "CoCreate LLC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CoCreate-app/CoCreate-overlay-scroll/issues"
+    "url": "https://github.com/CoCreate-app/CoCreate-scrollbar/issues"
   },
-  "homepage": "https://cocreate.app/docs/overlay-scroll",
+  "homepage": "https://cocreate.app/docs/scrollbar",
   "funding": {
     "type": "GitHub Sponsors ❤",
     "url": "https://github.com/sponsors/CoCreate-app"

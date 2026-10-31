@@ -13,7 +13,7 @@ Fork the [project on Github](https://github.com/CoCreate-app/CoCreate-overlay-sc
 ```
 git overlay-scroll https://github.com/contributor/CoCreate-overlay-scroll.git
 cd CoCreate-overlay-scroll
-git remote add upstream https://gitlab.com/cocreatejs/CoCreate-overlay-scroll.git
+git remote add upstream https://github.com/cocreatejs/CoCreate-overlay-scroll.git
 ```
 
 ## Create a Topic Branch

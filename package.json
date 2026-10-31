@@ -64,9 +64,9 @@
   "author": "CoCreate LLC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CoCreate-app/CoCreate-scrollbar/issues"
+    "url": "https://github.com/CoCreateJS/CoCreate-scrollbar/issues"
   },
-  "homepage": "https://cocreate.app/docs/scrollbar",
+  "homepage": "https://CoCreateJS.com/docs/scrollbar",
   "funding": {
     "type": "GitHub Sponsors ❤",
     "url": "https://github.com/sponsors/CoCreate-app"

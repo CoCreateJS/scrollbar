@@ -15,43 +15,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "cocreate": {
-    "environment": [
-      "client"
-    ],
-    "interface": {
-      "schemaVersion": 1,
-      "summary": "A declarative custom scrollbar for native scroll containers with configurable axes, track positions, visibility, and automatic DOM lifecycle handling.",
-      "source": "src/index.js",
-      "declarative": {
-        "selectors": [
-          "[scrollbar]"
-        ],
-        "attributes": [
-          {
-            "name": "scrollbar"
-          },
-          {
-            "name": "scrollbar-pos"
-          },
-          {
-            "name": "scrollbar-type"
-          },
-          {
-            "name": "scrollbar-visible"
-          }
-        ]
-      },
-      "api": {
-        "exports": [
-          "destroy",
-          "get",
-          "init",
-          "initAll"
-        ]
-      }
-    }
-  },
   "scripts": {
     "start": "webpack --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js",

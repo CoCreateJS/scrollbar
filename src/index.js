@@ -19,7 +19,9 @@ const CoCreateScrollbar = (function () {
 
     /**
      * Core ScrollInstance Class
-     */
+ * @private
+ * @environment client
+ */
     function ScrollInstance(el, config) {
         this.element = el;
         this.options = Object.assign({
@@ -83,6 +85,11 @@ const CoCreateScrollbar = (function () {
         this.update();
     };
 
+    /**
+     *
+ * @public
+ * @environment client
+ */
     ScrollInstance.prototype.init = function () {
         this.parseAttributes();
 
@@ -348,6 +355,11 @@ const CoCreateScrollbar = (function () {
         }
     };
 
+    /**
+     *
+ * @public
+ * @environment client
+ */
     ScrollInstance.prototype.destroy = function () {
         clearTimeout(this.scrollTimer);
         if (this.resizeObserver) this.resizeObserver.disconnect();
@@ -414,6 +426,11 @@ const CoCreateScrollbar = (function () {
             return created.length === 1 ? created[0] : created;
         },
 
+        /**
+         *
+ * @public
+ * @environment client
+ */
         get: function (el) {
             return instances.get(el);
         },
@@ -423,6 +440,11 @@ const CoCreateScrollbar = (function () {
             if (inst) inst.destroy();
         },
 
+        /**
+         *
+ * @public
+ * @environment client
+ */
         initAll: function () {
             if (typeof document === 'undefined') return;
             var targets = document.querySelectorAll(selector);
@@ -473,3 +495,57 @@ Observer.init({
 CoCreateScrollbar.initAll();
 
 export default CoCreateScrollbar;
+
+/**
+ *
+ * @name scrollbar
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name scrollbar-pos
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name scrollbar-type
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name scrollbar-visible
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ * A declarative custom scrollbar for native scroll containers with configurable axes, track positions, visibility, and automatic DOM lifecycle handling.
+ *
+ * @module scrollbar
+ * @environment client
+ */
+
+/**
+ * Declarative selectors recognized by this module.
+ *
+ * @name declarative-selectors
+ * @kind member
+ * @selectors
+ * @environment client
+ * @example
+ * ```json
+ * [
+ *   "[scrollbar]"
+ * ]
+ * ```
+ */

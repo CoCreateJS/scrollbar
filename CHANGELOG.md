@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/CoCreateJS/scrollbar/compare/v1.12.0...v2.0.0) (2026-11-02)
+
+
+### chore
+
+* record package identity migration as breaking ([7c0fcb2](https://github.com/CoCreateJS/scrollbar/commit/7c0fcb24d428e8381cccce6304bb9c93ead7a046))
+
+
+### BREAKING CHANGES
+
+* Consumers must install @cocreate/scrollbar and use the renamed CoCreateJS repository identity; the previous package and repository identities are no longer supported.
+
 # [1.12.0](https://github.com/CoCreateJS/scrollbar/compare/v1.11.2...v1.12.0) (2026-11-02)
 
 

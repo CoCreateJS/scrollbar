@@ -499,32 +499,28 @@ export default CoCreateScrollbar;
 /**
  *
  * @name scrollbar
- * @kind member
- * @attribute
+ * @kind attribute
  * @environment client
  */
 
 /**
  *
  * @name scrollbar-pos
- * @kind member
- * @attribute
+ * @kind attribute
  * @environment client
  */
 
 /**
  *
  * @name scrollbar-type
- * @kind member
- * @attribute
+ * @kind attribute
  * @environment client
  */
 
 /**
  *
  * @name scrollbar-visible
- * @kind member
- * @attribute
+ * @kind attribute
  * @environment client
  */
 

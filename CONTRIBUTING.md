@@ -1,19 +1,19 @@
 # Contributing to CoCreate-overlay-scroll
 
-This project is work of [many contributors](https://github.com/CoCreateJS/CoCreate-overlay-scroll/graphs/contributors).
-You're encouraged to submit [pull requests](https://github.com/CoCreateJS/CoCreate-overlay-scroll/pulls),
-[propose features and discuss issues](https://github.com/CoCreateJS/CoCreate-overlay-scroll/issues).
+This project is work of [many contributors](https://github.com/CoCreateJS/overlay-scroll/graphs/contributors).
+You're encouraged to submit [pull requests](https://github.com/CoCreateJS/overlay-scroll/pulls),
+[propose features and discuss issues](https://github.com/CoCreateJS/overlay-scroll/issues).
 
 In the examples below, substitute your Github username for `contributor` in URLs.
 
 ## Fork the Project
 
-Fork the [project on Github](https://github.com/CoCreateJS/CoCreate-overlay-scroll) and check out your copy.
+Fork the [project on Github](https://github.com/CoCreateJS/overlay-scroll) and check out your copy.
 
 ```
 git overlay-scroll https://github.com/contributor/CoCreate-overlay-scroll.git
 cd CoCreate-overlay-scroll
-git remote add upstream https://github.com/cocreatejs/CoCreate-overlay-scroll.git
+git remote add upstream https://github.com/CoCreateJS/overlay-scroll.git
 ```
 
 ## Create a Topic Branch
@@ -75,7 +75,7 @@ git push origin my-feature-branch
 
 ## Make a Pull Request
 
-Go to [https://github.com/CoCreateJS/CoCreate-overlay-scroll](https://github.com/CoCreateJS/CoCreate-overlay-scroll) and select your feature branch.
+Go to [https://github.com/CoCreateJS/overlay-scroll](https://github.com/CoCreateJS/overlay-scroll) and select your feature branch.
 Click the 'Pull Request' button and fill out the form. Pull requests are usually reviewed within a few days.
 
 ## Rebase

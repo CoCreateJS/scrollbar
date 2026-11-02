@@ -139,10 +139,10 @@ The stylesheet also includes `theme-indigo`, `theme-emerald`, `theme-rose`,
 ## Project links
 
 - [Documentation](https://CoCreateJS.com/docs/scrollbar)
-- [Issues](https://github.com/CoCreateJS/CoCreate-scrollbar/issues)
-- [Releases](https://github.com/CoCreateJS/CoCreate-scrollbar/releases)
-- [Contributing](https://github.com/CoCreateJS/CoCreate-scrollbar/blob/master/CONTRIBUTING.md)
+- [Issues](https://github.com/CoCreateJS/scrollbar/issues)
+- [Releases](https://github.com/CoCreateJS/scrollbar/releases)
+- [Contributing](https://github.com/CoCreateJS/scrollbar/blob/master/CONTRIBUTING.md)
 
 ## License
 
-[MIT](https://github.com/CoCreateJS/CoCreate-scrollbar/blob/master/LICENSE)
+[MIT](https://github.com/CoCreateJS/scrollbar/blob/master/LICENSE)

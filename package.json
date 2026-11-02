@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/scrollbar",
-  "version": "1.16.0",
+  "version": "1.12.0",
   "description": "A declarative custom scrollbar for native scroll containers with configurable axes, track positions, visibility, and automatic DOM lifecycle handling.",
   "keywords": [
     "scrollbar",

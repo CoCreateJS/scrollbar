@@ -1,3 +1,21 @@
+# [1.12.0](https://github.com/CoCreateJS/scrollbar/compare/v1.11.2...v1.12.0) (2026-11-02)
+
+
+### Bug Fixes
+
+* add Deno specific entries to .gitignore ([5d05f63](https://github.com/CoCreateJS/scrollbar/commit/5d05f6330bfe7819741fa3e6a04c9fd9602ac72a))
+* bump [@cocreate](https://github.com/cocreate) dependencies ([9933b8d](https://github.com/CoCreateJS/scrollbar/commit/9933b8dfb7e36b88819cc1308bb49045172d1548))
+* bump versions ([d830857](https://github.com/CoCreateJS/scrollbar/commit/d830857f54364d40b1901f470e00b8f6dcf6c5ad))
+* bump versions ([91a8ae3](https://github.com/CoCreateJS/scrollbar/commit/91a8ae3d64b261071615f1160e08a7d1dd650b54))
+* remove trailing slash from node_modules entry in .gitignore ([6aa5b52](https://github.com/CoCreateJS/scrollbar/commit/6aa5b52f228377b94854acbe5fbf967bbde6f6c5))
+* update git url ([efd90e8](https://github.com/CoCreateJS/scrollbar/commit/efd90e80b3da6259c6e0c801dc0095352e0f5dc2))
+* update GitHub Actions to use latest versions and sync package.json description ([5563ff9](https://github.com/CoCreateJS/scrollbar/commit/5563ff99e77438648b996a30e8e6bcdc759ce74f))
+
+
+### Features
+
+* rebuild scrollbar around native scrolling ([7ab6cf0](https://github.com/CoCreateJS/scrollbar/commit/7ab6cf06cef1923f4aadc63a9d8fca0123fa13e7))
+
 ## [1.11.2](https://github.com/CoCreateJS/CoCreate-overlay-scroll/compare/v1.11.1...v1.11.2) (2026-07-19)
 
 

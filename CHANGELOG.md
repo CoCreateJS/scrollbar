@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/CoCreateJS/scrollbar/compare/v2.0.0...v2.0.1) (2026-11-05)
+
+
+### Bug Fixes
+
+* upgrade CoCreate dependencies to v2 ([2a163ad](https://github.com/CoCreateJS/scrollbar/commit/2a163ad9ce9602b1b5c45df682cb17bb4def5534))
+
 # [2.0.0](https://github.com/CoCreateJS/scrollbar/compare/v1.12.0...v2.0.0) (2026-11-02)
 
 
